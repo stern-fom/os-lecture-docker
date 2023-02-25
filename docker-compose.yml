@@ -1,0 +1,23 @@
+version: "3.1"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:8082:8080"
+
+  db:
+    image: mariadb:latest
+    environment:
+      MARIADB_USER: user
+      MARIADB_PASSWORD: my-cool-secret
+      MARIADB_ROOT_PASSWORD: my-secret-password
+
+  admin:
+    image: phpmyadmin:latest
+    ports:
+      - "127.0.0.1:8083:80"
+    environment:
+      PMA_HOST: db
