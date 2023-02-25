@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "127.0.0.1:8082:8080"
+      - "8082:8080"
 
   db:
     image: mariadb:latest
@@ -18,6 +18,6 @@ services:
   admin:
     image: phpmyadmin:latest
     ports:
-      - "127.0.0.1:8083:80"
+      - "8083:80"
     environment:
       PMA_HOST: db
