@@ -14,6 +14,9 @@ services:
       MARIADB_USER: user
       MARIADB_PASSWORD: my-cool-secret
       MARIADB_ROOT_PASSWORD: my-secret-password
+    volumes:
+      - data-volume:/var/lib/mysql
+      - test.sql:/docker-entrypoint-initdb.d/test.sql
 
   admin:
     image: phpmyadmin:latest
