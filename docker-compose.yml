@@ -14,8 +14,10 @@ services:
       MARIADB_USER: user
       MARIADB_PASSWORD: my-cool-secret
       MARIADB_ROOT_PASSWORD: my-secret-password
-    volumes:
-      - ./test.sql:/docker-entrypoint-initdb.d/test.sql
+
+# If used from a local clone, this will automatically initialize the database
+#    volumes:
+#      - ./test.sql:/docker-entrypoint-initdb.d/test.sql
 
   admin:
     image: phpmyadmin:latest
